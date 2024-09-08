@@ -1,0 +1,241 @@
+<div className="container">
+        <div className="row">
+          <div className="col-lg-2 col-md-3">
+            <SectionWithChapterCard
+              novelCoverImg={novelCoverImg}
+              novelLatestChapters={novelLatestChapters}
+              novelTitle={novelTitle}
+              novelSynopsis={novelSynopsis}
+              novelTags={novelTags}
+            />
+          </div>
+          <div className="col-lg-2 col-md-3">
+            <SectionNoChapterCard
+              novelCoverImg={novelCoverImg}
+              novelTitle={novelTitle}
+              novelSynopsis={novelSynopsis}
+              novelTags={novelTags}
+            />
+          </div>
+          <div className="col-lg-4 col-md-3">
+          </div>
+          <div className="col-lg-4 col-md-4">
+            <SidebarCard
+              novelCoverImg={novelCoverImg}
+              novelTitle={novelTitle}
+              novelRating={novelRating + "/10.0"}
+              novelRatingPercent={novelRatingPercent}
+              novelVotes={novelVotes}
+              novelGenre={novelGenre}
+            />
+            <SidebarCard
+              novelCoverImg={novelCoverImg}
+              novelTitle={novelTitle}
+              novelRating={novelRating + "/10.0"}
+              novelRatingPercent={novelRatingPercent}
+              novelVotes={novelVotes}
+              novelGenre={novelGenre}
+            />
+            <SidebarCard
+              novelCoverImg={novelCoverImg}
+              novelTitle={novelTitle}
+              novelRating={novelRating + "/10.0"}
+              novelRatingPercent={novelRatingPercent}
+              novelVotes={novelVotes}
+              novelGenre={novelGenre}
+            />
+            <SidebarCard
+              novelCoverImg={novelCoverImg}
+              novelTitle={novelTitle}
+              novelRating={novelRating + "/10.0"}
+              novelRatingPercent={novelRatingPercent}
+              novelVotes={novelVotes}
+              novelGenre={novelGenre}
+            />
+
+          </div>
+          <div className="col-12">
+            <SingleDetailCard
+              novelCoverImg={novelCoverImg}
+              novelTitle={novelTitle}
+              novelAuthor={novelAuthor}
+              novelChapters={novelChapters}
+              novelStatus={"Ongoing"}
+              novelRating={novelRating + "/10.0"}
+              novelRatingPercent={novelRatingPercent}
+              novelVotes={novelVotes}
+              novelViews={novelViews}
+            />
+
+          </div>
+          <div className="col-12">
+            <CardWithHeading cardHeading="Synopsis">
+              <p>Chu Xuan transmigrated to a fantasy world and became the young master of a powerful family. He was
+                rebuked for misbehaving just because he sneezed during a banquet. As punishment, he was banished
+                from the ancestral mansion and was relocated to a remote residence.
+                He did not mind the punishment at all. He just needed a spot that could allow him to be a shut-in.
+                With the system that would allow him to grow stronger by being a shut-in, the longer he stayed
+                indoors, the more powerful he became.</p>
+            </CardWithHeading>
+          </div>
+          <div className="col-12">
+            <CardWithHeading cardHeading="Synopsis">
+              <p>Chu Xuan transmigrated to a fantasy world and became the young master of a powerful family. He was
+                rebuked for misbehaving just because he sneezed during a banquet. As punishment, he was banished
+                from the ancestral mansion and was relocated to a remote residence.
+                He did not mind the punishment at all. He just needed a spot that could allow him to be a shut-in.
+                With the system that would allow him to grow stronger by being a shut-in, the longer he stayed
+                indoors, the more powerful he became.</p>
+            </CardWithHeading>
+          </div>
+          <div className="col-6">
+            <CardWithBackground cardHeading="Synopsis">
+              <CardRating ratings={ratingsData} />
+            </CardWithBackground>
+          </div>
+          <div className="col-6">
+            <CardWithBackground cardHeading="Write Your Review!">
+              <CardAction>
+                <BtnPrimary className="btn-red-gradient">&nbsp; Write A Review
+                  &nbsp;</BtnPrimary>
+              </CardAction>
+            </CardWithBackground>
+          </div>
+          <div className="col-6">
+            <CardWithHeading cardHeading="Synopsis">
+              <CardGenre genres={novelGenre} />
+            </CardWithHeading>
+          </div>
+          <div className="col-8">
+            <CardWithBackground cardHeading="Create Account">
+              <form>
+                <Input type='password' placeholder="Please Add Your Password"></Input>
+                <br />
+                <Autocomplete isLoading={true} placeholder="Search Novels" />
+                <br />
+                <BtnPrimary className="btn-red-gradient">&nbsp; Write A Review
+                  &nbsp;</BtnPrimary>
+              </form>
+            </CardWithBackground>
+          </div>
+        </div>
+
+        <Modal show={false} modalTitle={"Testing Modal"} modalAction={"Submit"}>
+          <form>
+            <Input type='password' placeholder="Please Add Your Password"></Input>
+            <br />
+            <Autocomplete isLoading={true} placeholder="Search Novels" />
+            <br />
+          </form>
+        </Modal>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /* <SingleBigCard
+      novelCoverImg={"https://img.asuracomics.com/unsafe/fit-in/720x936/https://asuratoon.com/wp-content/uploads/2021/03/cover.jpg"}
+      novelTitle={"Return Of Mount Hua Sect"}
+      novelSynopsis={`Chung Myung, The 13th Disciple of the Mount Hua Sect, One of the 3 Great Swordsmen, Plum
+    Blossom Sword Saint, defeated Chun Ma, who brought destruction and disarray onto the
+    world.
+    After the battle, he breathes his last breath on top of the headquarter mountain of the
+    Heavenly Demon Sect. He is reborn after 100 years in the body of a child. What? The
+    Mount
+    Hua Sect has fallen? What kind of nonsense is that!?`}
+      novelChapters={"120"}
+      novelRating={"4.8/5.0"}
+      novelVotes={"126.3k"}
+    /> */
+
+
+
+
+    const novelCoverImg = 'https://img.asuracomics.com/unsafe/fit-in/720x936/https://asuratoon.com/wp-content/uploads/2021/03/cover.jpg';
+  const novelChapters = '120'
+  const novelLatestChapters = [
+    { chapterNumber: "2", chapterTags: ["new"], chapterTime: "3 hours ago" },
+    { chapterNumber: "1", chapterTags: ["new"], chapterTime: "6 hours ago" },
+    { chapterNumber: "0", chapterTags: ["new"], chapterTime: "8 hours ago" }
+  ];
+  const novelTitle = 'Return Of Mount Hua Sect';
+  const novelSynopsis = 'Chung Myung, The 13th Disciple of the Mount Hua Sect, One of the 3 Great Swordsmen, Plum Blossom Sword Saint, defeated Chun Ma, who brought destruction and disarray onto the world. After the battle, he breathes his last breath on top of the headquarter mountain of the Heavenly Demon Sect. He is reborn after 100 years in the body of a child. What? The Mount Hua Sect has fallen? What kind of nonsense is that!?';
+  const novelTags = ['Fantasy', 'Adventure'];
+  const novelGenre = ['Fantasy', 'Adventure', 'Thriller', 'Action', 'Romance', 'Science-Fiction']
+  const novelRating = '9.0'
+  const novelRatingPercent = parseFloat(novelRating) * 10 + "%"
+  const novelVotes = '126.3k'
+  const novelAuthor = 'Sleepyfox'
+  const novelViews = '1.6M'
+  const ratingsData = [
+    { type: 'Translation Quality', percentage: 90 },
+    { type: 'Stability of Updates', percentage: 50 },
+    { type: 'Story Development', percentage: 80 },
+    { type: 'Character Design', percentage: 70 },
+    { type: 'World Background', percentage: 77 },
+  ]
+
+<div className="col-lg-4 col-md-6">
+          <div className="row gy-2">
+            <div className="col-md-12">
+              <SidebarCard
+                novelCoverImg={novelCoverImg}
+                novelTitle={novelTitle}
+                novelRating={novelRating + "/10.0"}
+                novelRatingPercent={novelRatingPercent}
+                novelVotes={novelVotes}
+                novelGenre={novelGenre}
+              />
+            </div>
+            <div className="col-md-12">
+              <SidebarCard
+                novelCoverImg={novelCoverImg}
+                novelTitle={novelTitle}
+                novelRating={novelRating + "/10.0"}
+                novelRatingPercent={novelRatingPercent}
+                novelVotes={novelVotes}
+                novelGenre={novelGenre}
+              />
+            </div>
+            <div className="col-md-12">
+              <SidebarCard
+                novelCoverImg={novelCoverImg}
+                novelTitle={novelTitle}
+                novelRating={novelRating + "/10.0"}
+                novelRatingPercent={novelRatingPercent}
+                novelVotes={novelVotes}
+                novelGenre={novelGenre}
+              />
+            </div>
+            <div className="col-md-12">
+              <SidebarCard
+                novelCoverImg={novelCoverImg}
+                novelTitle={novelTitle}
+                novelRating={novelRating + "/10.0"}
+                novelRatingPercent={novelRatingPercent}
+                novelVotes={novelVotes}
+                novelGenre={novelGenre}
+              />
+            </div>
+            <div className="col-md-12">
+              <SidebarCard
+                novelCoverImg={novelCoverImg}
+                novelTitle={novelTitle}
+                novelRating={novelRating + "/10.0"}
+                novelRatingPercent={novelRatingPercent}
+                novelVotes={novelVotes}
+                novelGenre={novelGenre}
+              />
+            </div>
+          </div>
+        </div>

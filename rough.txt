@@ -1,0 +1,121 @@
+import { useState, useEffect } from "react";
+import Search from "../utilities/Search";
+import SidebarCard from "../cards/SidebarCard";
+
+const Header = ({ children, allStoryData}) => {
+  const [searchInput, setSearchInput] = useState("");
+  const [searchData, setSearchData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  
+  console.log(allStoryData)
+
+  useEffect(() => {
+    if (!searchInput) {
+      setSearchData(null);
+      return;
+    }
+
+    const fetchSearchData = async () => {
+      setLoading(true);
+      setError(null);
+
+      const searchApiUrl =
+        "https://us-central1-cb-story-app-27012024.cloudfunctions.net/filterStoryByTitle?title=" + searchInput;
+
+      try {
+        const response = await fetch(searchApiUrl);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setSearchData(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSearchData();
+  }, [searchInput]);
+
+  const searchDataArr = searchData?.data?.slice(0, 8).map((item, index) => {
+    const genres = Object.keys(item.Genres).filter((genre) => item.Genres[genre]);
+
+    return (
+      <SidebarCard
+        key={index}
+        novelId={item.StoryId}
+        novelCoverImg={item.StoryImage}
+        novelTitle={item.StoryTitle}
+        novelRating={item.Ratings + "/10.0"}
+        novelRatingPercent={parseFloat(item.Ratings) * 10 + "%"}
+        novelVotes={item.Votes}
+        novelGenre={genres}
+      />
+    );
+  }) || [];
+
+  return (
+    <div className="header">
+      {children}
+      <Search
+        className="mx-auto"
+        inputValue={searchInput}
+        setInputValue={setSearchInput}
+        dataArr={searchDataArr}
+        isLoading={loading}
+      />
+    </div>
+  );
+};
+
+export default Header;
+
+import React, { useState, useRef } from 'react';
+import Loader from '../loaders/Loader';
+import notFound from '../../assets/not-found.svg';
+
+const Search = ({ inputValue, setInputValue, dataArr, isLoading, className="" }) => {
+  const [isFocused, setIsFocused] = useState(false);
+  const inputRef = useRef();
+
+  const handleContainerMouseDown = (e) => {
+    e.preventDefault();
+    inputRef.current.focus();
+  };
+
+  return (
+    <div className={"search " + className}>
+      <input
+        ref={inputRef}
+        type="text"
+        placeholder="Search Novels..."
+        onInput={(e) => setInputValue(e.target.value)}
+        value={inputValue}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        style={isFocused && inputValue ? { borderBottomLeftRadius: "0", borderBottomRightRadius: "0" } : {}}
+      />
+      <div className={`search-container ${isFocused && inputValue ? 'active' : ''}`} style={isLoading ? { height: "10rem" } : {}} onMouseDown={handleContainerMouseDown}>
+        <div className="search-items">
+          <div className="row">
+            {inputValue === "" ? null : 
+              (isLoading ? <Loader style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", scale: "0.9"}}/> : 
+              (dataArr.length > 0 ? dataArr.map((item, index) => (
+                <div className="col-12" key={index}>
+                  {item}
+                </div>
+              )) : <div className="col-12 not-found" style={{marginLeft: "0", height: "30rem"}}>
+              <img src={notFound} alt="" style={{scale: "0.4"}}/>
+            </div>))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Search;

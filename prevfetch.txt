@@ -1,0 +1,72 @@
+import React, { forwardRef, useCallback, useLayoutEffect, useRef, useState } from "react";
+
+const defaultStartIndex = 100;
+
+const buildItems = (startIndex = defaultStartIndex) =>
+  new Array(1).fill(null).map((value, index) => ({
+    key: startIndex + index,
+    label: `vivek9191 key:${startIndex + index}`
+  }));
+
+const Item = forwardRef(({ label }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className="chapter"
+    >
+      {label} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ratione ex molestiae reiciendis magni, quibusdam placeat quidem reprehenderit quod, accusantium sunt enim voluptatibus, ut pariatur sed perspiciatis illum aliquid in dolore. Recusandae qui quaerat incidunt, obcaecati alias iusto iure voluptatum quia odit laudantium omnis a repudiandae minus cupiditate dignissimos. Voluptatem, molestiae quae, iste hic laboriosam est nisi modi cum eum cupiditate, ullam dicta dignissimos! Obcaecati assumenda non aliquam a. Illum repellendus, rerum asperiores vel porro quis dolorem nihil sed voluptatem accusamus explicabo ullam dolor harum distinctio at perferendis est laudantium fugiat commodi itaque. Totam odio cum consectetur laboriosam nobis ducimus incidunt dolorem excepturi mollitia vel dignissimos, expedita dicta provident obcaecati maxime suscipit magni unde natus reprehenderit, exercitationem id. Eius rerum adipisci et quasi, voluptatibus, soluta vitae harum iusto magni recusandae voluptates repellat nulla dolor repudiandae praesentium est possimus atque laborum ut! Excepturi, cum a itaque vitae quas accusantium nulla. Vero libero laudantium dignissimos consequatur in sint modi dolorem ad, repellendus reiciendis rem ex autem blanditiis accusantium necessitatibus, et corporis eum praesentium quasi ipsum. Recusandae in totam officiis mollitia neque voluptate architecto! Rerum suscipit impedit exercitationem nam rem atque mollitia nihil repellendus possimus maxime. Culpa sapiente necessitatibus quidem distinctio, itaque minima error repudiandae in quam eum tempora quasi, ipsum molestias amet pariatur repellendus nobis esse! Iste, voluptatibus, mollitia dignissimos eligendi eaque molestias autem laboriosam, sequi reiciendis aliquid modi labore illum laborum? Non sint ducimus veniam incidunt ipsa magnam aspernatur iure velit, delectus voluptatem? Doloremque ex odio quas architecto, veniam perspiciatis! Non veritatis magni alias ullam aspernatur fuga, nulla voluptates, dolore qui, unde ex doloribus quibusdam adipisci quaerat ut quas aliquam numquam nemo. Error minus maxime sint, sapiente, sit recusandae reiciendis saepe fugit doloremque dignissimos tempore, quos sunt inventore labore. Ea soluta iusto quisquam itaque sed odit tenetur doloribus dignissimos, id accusamus libero error eum repellat provident consequuntur. Repudiandae facilis quam optio molestiae alias exercitationem sed sit ab quibusdam? Sequi omnis quas molestias veniam inventore reiciendis debitis, tempore cumque alias. Impedit, repudiandae. Dolorum velit ipsam eos optio cupiditate? Qui accusantium animi expedita eos voluptas, explicabo quis delectus, hic mollitia dolorem deserunt ipsum ex culpa ipsa amet alias sequi neque veritatis non aliquid corporis. Perspiciatis voluptatem mollitia a odio. Nulla provident explicabo consequatur fuga, optio necessitatibus, eum ea quos voluptatem aspernatur expedita iusto consectetur aut. Rerum, doloremque quas quia, praesentium ducimus et voluptate quam natus architecto nisi consequatur tenetur eligendi alias laborum perspiciatis sint adipisci suscipit! Quas voluptatibus quos, minus, doloribus adipisci sint autem sit eum distinctio animi, repellat voluptatem consectetur ea. Sint debitis deserunt autem ratione repellendus recusandae a consequuntur earum quidem, reiciendis sit sequi explicabo quos fugit. Fugit ullam qui, quia excepturi dolor nesciunt quis totam, labore numquam doloremque error deleniti explicabo quibusdam facilis rerum quos nobis rem molestias amet quisquam provident? Aut, ratione tempora unde ullam quod eius vero culpa et, expedita impedit pariatur nam? Culpa placeat harum iusto ipsum voluptate voluptates, facilis accusamus molestiae qui itaque dolorem! Reprehenderit eveniet tenetur eaque ab tempore dolores quibusdam dolorum sapiente, similique ut sit harum cupiditate, recusandae molestiae, error veritatis laboriosam cum maiores culpa ratione pariatur fuga. Modi libero accusamus quia doloremque voluptas esse fuga atque ratione? Quidem fugiat quasi doloremque minus perferendis, quas recusandae odio, quis corporis sit quae aliquam debitis laborum ab ut, porro repellat ex quod eaque dolorum sed! Voluptatem vitae asperiores aliquam quaerat rem molestias delectus quidem nam quis animi necessitatibus distinctio, quod corporis iusto praesentium tempore mollitia dicta aspernatur. Dignissimos, consequatur aut. Minus facilis sit cum similique nobis repudiandae, accusantium nostrum excepturi expedita illum vitae quisquam alias provident doloribus, mollitia consequatur consectetur in voluptatem recusandae labore soluta fuga at. Eum, totam. Esse eius nisi hic ipsam sed explicabo repellendus molestiae vero quas. Necessitatibus labore magnam neque perferendis corrupti eum! Sapiente repellat quisquam alias assumenda corporis numquam fugit magnam cumque sint ea voluptates unde maxime modi, provident labore tempore aliquam nemo fugiat, quaerat laborum consequatur minima harum exercitationem? Vel eum rerum hic omnis repellendus earum, minus quod ducimus corrupti error, voluptates perferendis! Dicta numquam itaque tenetur architecto libero necessitatibus aperiam harum nobis odit, tempora fugiat! Maiores perspiciatis nobis voluptas harum possimus doloribus ipsa odio velit iste fuga? Eveniet tempora ab, eaque quidem porro provident. Temporibus, ut dolore, eligendi suscipit similique voluptatibus praesentium laborum non excepturi delectus aspernatur provident ullam commodi totam officiis unde nihil! Dolore cum in, minima reprehenderit quis quia rem doloribus fugiat dolor eligendi excepturi voluptas modi perspiciatis possimus distinctio delectus minus hic, officia ab at? Ducimus odio tenetur, minima porro fugit aliquam omnis mollitia laboriosam et, esse non veritatis numquam quis ad! Quos sed beatae laudantium qui omnis dolorum, aspernatur vero eligendi, ea dolores doloribus eaque corporis excepturi molestias illum adipisci obcaecati! Temporibus similique dicta veritatis error necessitatibus laborum totam quia quidem! Veritatis magnam eaque voluptates, omnis totam, aspernatur dolore quaerat incidunt voluptate quos hic modi tempore. Vitae perferendis eum deleniti accusamus, dolorum numquam, nihil perspiciatis nobis rem dolore sint, consequatur explicabo harum quasi quam pariatur voluptas et in officiis! Sint, sunt iste veritatis obcaecati tempore debitis sequi labore iure eum magni. Optio consequatur dolores doloribus totam ullam. Maxime, sunt. Quo recusandae quaerat voluptates officia, reiciendis non velit a nemo odio ipsam harum minima optio omnis dicta provident repudiandae aliquid voluptatem sequi aspernatur nulla itaque placeat dolorem illo. Et, dignissimos magni nam fuga mollitia tenetur nostrum officia sapiente blanditiis quia ipsa. Nihil consequatur assumenda consectetur enim ullam velit dolore facilis sequi quaerat rem impedit debitis aliquid omnis veritatis a nisi unde ex in, aspernatur voluptatem reiciendis dolor incidunt. Vitae, sed ut aperiam deleniti eum accusantium laboriosam, cum iste enim non ad illo! Odio, temporibus quia tempora optio odit cum repudiandae molestias cumque nobis ipsum ducimus eaque nemo qui aut praesentium laborum vitae quibusdam fugiat. Iure error vero ab magnam, possimus eum pariatur laborum repellendus minus fuga labore asperiores quasi. Reiciendis doloremque perferendis asperiores odit nulla veritatis nostrum ad eligendi et amet deserunt voluptates cumque incidunt, possimus iure? Enim distinctio doloribus possimus, vero eius non ipsa, maiores labore ad debitis magni commodi dolore voluptatibus? Impedit, quo eum.
+    </div>
+  );
+});
+
+const ScrollingContainer = () => {
+  const [loading, setLoading] = useState(false);
+  const [items, setItems] = useState(buildItems());
+  const [scrollToKey, setScrollToKey] = useState();
+  const itemRefs = useRef({});
+  const containerRef = useRef(null);
+
+  const fetchMoreItemsAbove = useCallback(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setItems([...buildItems(items[0].key - 50), ...items]);
+      setScrollToKey(items[0].key);
+      setLoading(false);
+    }, 1000);
+  }, [items]);
+
+  useLayoutEffect(() => {
+    if (scrollToKey === undefined || containerRef.current.scrollTop !== 0)
+      return;
+    itemRefs.current[scrollToKey].scrollIntoView();
+  }, [scrollToKey]);
+
+  const onScroll = useCallback((e) => {
+    const { scrollTop } = e.target;
+    if (scrollTop <= 0 && !loading) {
+      fetchMoreItemsAbove();
+    }
+  }, [fetchMoreItemsAbove, loading]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="story-container"
+      onScroll={onScroll}
+    >
+      {items.map((item) => (
+        <Item
+          key={item.key}
+          label={item.label}
+          ref={(el) => (itemRefs.current[item.key] = el)}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default function Story() {
+  return (
+      <ScrollingContainer />
+  );
+}
